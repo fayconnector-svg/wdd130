@@ -1,3 +1,33 @@
+/* ==========================================================================
+   COLOR PALETTE & DESIGN TOKENS
+   ========================================================================== */
+:root {
+    --primary-color: #4682b4;
+    /* Steel Blue */
+    --primary-dark: #2c5270;
+    /* Darker Steel Blue for accents */
+    --accent-color: #00a8e8;
+    /* Vibrant Cyan */
+    --text-main: #2b2d42;
+    /* Soft Charcoal */
+    --bg-main: #f8f9fa;
+    /* Clean Off-White */
+    --bg-card: #ffffff;
+    /* Pure White */
+    --border-light: #e9ecef;
+
+    --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+}
+
+/* ==========================================================================
+   GLOBAL BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -5,87 +35,118 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-main);
     line-height: 1.6;
+    padding-bottom: 2rem;
 }
 
-/* Header & Nav */
+/* Page Centering and Max-Width Structure */
+header,
+.grid,
+footer {
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
 header {
-    background-color: #333;
-    padding: 1rem;
+    padding: 1.5rem 1rem 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   NAVIGATION (CSS Flexbox)
+   ========================================================================== */
+nav {
+    background-color: var(--primary-color);
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 nav a {
-    color: #fff;
+    display: block;
+    padding: 0.6rem 1.2rem;
     text-decoration: none;
-    margin-right: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    transition: all 0.25s ease-in-out;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
-/* Main Content */
+/* ==========================================================================
+   MAIN CONTENT & ASIDE (CSS Grid Layout)
+   ========================================================================== */
+.grid {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    /* Aside fixed at 20rem on left, Main takes rest */
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
 main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 10px;
+    grid-column: 2 / 3;
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
 }
 
-main img {
-    float: right;
-    margin-left: 15px;
-}
-
-/* Aside & Heading Overlay */
 aside {
+    width: 20rem;
     position: relative;
-    width: 20em;
-    text-align: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    border-top: 4px solid var(--primary-color);
 }
 
+main h2,
 aside h2 {
-    position: absolute;
-    top: 47px;
-    left: 150px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 4px 8px;
-    border-radius: 4px;
+    font-family: var(--font-heading);
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
 }
 
-/* Footer */
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 footer {
+    background-color: var(--primary-dark);
+    color: #ffffff;
     text-align: center;
-    padding: 1rem;
-    background-color: #f1f1f1;
-    margin-top: 20px;
-}
-
-/* Class Selectors */
-.box {
-    margin: 1rem;
-    border: 1px solid rgb(0 0 0 / 10%);
-    padding: 1rem;
-    background-color: #ddd;
-    color: #000;
-}
-
-main img {
-    float: right;
-    margin-left: 15px;
-}
-
-aside {
-    position: relative;
-    width: 20em;
-    text-align: center;
-}
-
-aside h2 {
-    position: absolute;
-    top: 47px;
-    /* Adjust this number if needed to center over image */
-    left: 150px;
-    /* Adjust this number if needed to center over image */
+    padding: 1.2rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    font-weight: 500;
 }

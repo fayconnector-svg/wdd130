@@ -1,0 +1,211 @@
+/* ==========================================================================
+   1. COLOR PALETTE & FONTS (CSS VARIABLES)
+   ========================================================================== */
+:root {
+    --primary-color: #0b4f6c;
+    /* Deep River Blue */
+    --secondary-color: #01baef;
+    /* Rapid Cyan Accent */
+    --dark-color: #1d2d44;
+    /* Dark Slate for Text */
+    --light-bg: #f8f9fa;
+    /* Off-white background */
+    --card-bg: #ffffff;
+    /* Pure White for cards */
+    --heading-font: "Georgia", "Times New Roman", serif;
+    --body-font: "Segoe UI", Arial, sans-serif;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   2. BOX MODEL RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--dark-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+}
+
+/* Page Layout Container - Keeps everything centered and structured */
+header,
+main,
+footer {
+    width: 900px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    border-radius: 50%;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   4. HEADINGS & TYPOGRAPHY
+   ========================================================================== */
+h1,
+h2 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--secondary-color);
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* Base Spacing */
+p {
+    font-size: 1rem;
+}
+
+section {
+    background-color: var(--card-bg);
+    margin: 25px 0;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* ==========================================================================
+   5. HERO SECTION (OVERLAYS)
+   ========================================================================== */
+.hero {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    /* Ensures image fills space cleanly */
+}
+
+/* Main Heading Overlay */
+.hero h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(11, 79, 108, 0.85);
+    /* Semi-transparent blue */
+    color: #ffffff;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+/* Mission Statement Card Overlay */
+.hero article {
+    position: absolute;
+    bottom: 25px;
+    left: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0.92);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+}
+
+.hero article img {
+    float: right;
+    width: 130px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 15px;
+    border-radius: 6px;
+    border: 2px solid var(--secondary-color);
+}
+
+.hero article p {
+    color: var(--dark-color);
+    font-size: 0.98rem;
+}
+
+/* ==========================================================================
+   6. FOOTER & SOCIAL MEDIA LINKS
+   ========================================================================== */
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: var(--shadow);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+.socialmedia {
+    display: flex;
+    gap: 15px;
+}
+
+.socialmedia a {
+    text-decoration: none;
+}
+
+.socialmedia img {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+
+.socialmedia img:hover {
+    transform: scale(1.15);
+    /* Slight pop effect on hover */
+}
